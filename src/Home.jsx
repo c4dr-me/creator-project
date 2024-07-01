@@ -6,7 +6,29 @@ import {
   FaCheckCircle,
   FaArrowRight,
 } from "react-icons/fa";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+
+const Tooltip = styled.div`
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0e58ae;
+  color: #ffffff ;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  visibility: visible; 
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+`;
+const hoverEffect = css`
+  &:hover ${Tooltip} {
+    visibility: none;
+    opacity: 0;
+  }
+`;
 
 const MainContent = styled.div`
   display: flex;
@@ -35,7 +57,7 @@ const MainContent = styled.div`
       url('./illustrationpng_4.png');
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-size: 20% auto, 40% auto, 50% auto, 25% auto;
-    background-position: 400px 50%, 100% 50%, 0% 100%, 50px 330px;
+    background-position: 400px 50%, 95% 50%, 0% 100%, 50px 330px;
     background-attachment: scroll, scroll, scroll, scroll;
   }
 
@@ -61,6 +83,8 @@ const MainContent = styled.div`
     position: absolute;
     border-radius: 3rem;
     background-position: 75%;
+    ${hoverEffect}
+  }
   }
 
   .content {
@@ -146,13 +170,12 @@ const MainContent = styled.div`
   }
 `;
 
+
 const Home = () => {
   const mobileDisplayRef = useRef(null);
 
   useEffect(() => {
     const mobileDisplay = mobileDisplayRef.current;
-    if (!mobileDisplay) return;
-
     const handleMouseMove = (e) => {
       const { left, top, width, height } = mobileDisplay.getBoundingClientRect();
       const x = ((e.clientX - left) / width) * 100;
@@ -172,7 +195,9 @@ const Home = () => {
       <div className="main-content grid grid-two-column">
         <div className="illustration">
           <div className="mobileFrame">
-            <div className="mobileDisplay" ref={mobileDisplayRef}></div>
+            <div className="mobileDisplay" ref={mobileDisplayRef}>
+            <Tooltip>Mouse over to explore</Tooltip>
+            </div>
           </div>
         </div>
         <div className="content">
