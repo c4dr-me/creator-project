@@ -29,7 +29,8 @@ const MainHeader = styled.header`
     background-color: #0e58aeff;
     border: 0.1rem solid rgb(98 84 243);
     color: #ffffffff;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     min-width: 8rem;
     min-height: 3.5rem;
     border-radius: 1rem;

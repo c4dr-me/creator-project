@@ -57,10 +57,8 @@ h2 {
 
 p {
   color: ${({ theme }) => theme.colors.text};
-  opacity: .7;
   font-size: 1.65rem;
   line-height: 1.5;
-  margin-top: 1rem;
   font-weight:400;
 }
 

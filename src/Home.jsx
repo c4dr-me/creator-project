@@ -1,29 +1,208 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import { IconContext } from "react-icons";
+import {
+  FaRegLightbulb,
+  FaRocket,
+  FaCheckCircle,
+  FaArrowRight,
+} from "react-icons/fa";
+import styled from "styled-components";
 
 const Home = () => {
-  return (
-    <div id='home' style={{ backgroundColor: '#0e58ae19' }}>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint rerum, corrupti doloremque eos error magni in cumque ipsam. Fuga, illum sunt? Sunt dolorum magnam nulla deleniti quis molestias harum voluptates.
-      Autem, vel rerum. Optio voluptates reprehenderit, qui quis nisi voluptatem expedita iste in cum, dolore voluptatum, repellat facilis tempore asperiores quisquam porro aut amet placeat ipsam eius saepe! Repellat, blanditiis?
-      Autem adipisci, ad architecto doloremque quasi numquam deleniti? Atque ratione facere earum fuga odio quo alias totam necessitatibus, voluptates accusantium nesciunt quidem illum similique id excepturi! Rerum laboriosam harum laborum?
-      Facilis enim iure labore vel itaque commodi illum aliquid cum quisquam distinctio. Eligendi repellendus repellat in mollitia accusantium! Ducimus illum molestias illo harum cupiditate quo asperiores, consequatur nesciunt necessitatibus amet.
-      Obcaecati tenetur ipsa ad exercitationem suscipit id quam consectetur quae libero ipsam vel, illo quos ducimus sed sapiente alias illum doloribus corrupti quasi beatae atque. Nemo, cupiditate odio! Voluptas, deleniti!
-      Modi voluptatum accusamus voluptates nam fuga eligendi, odio necessitatibus quam, aut officiis, perferendis explicabo error ex illo iusto tenetur ratione voluptatem sequi itaque? Sapiente ut beatae officiis commodi! Corrupti, corporis?
-      Id fuga ducimus ullam magni molestias voluptates aut quaerat molestiae ea fugit, aspernatur magnam. Magni quidem, fuga, veritatis quae a laudantium, ab at architecto ratione vero illo porro exercitationem impedit?
-      Officia eaque hic enim modi reiciendis ipsum illo incidunt eveniet dignissimos, quos illum neque, aperiam ipsa reprehenderit iste perferendis. Vero culpa qui quidem, provident similique quasi ipsam incidunt quod praesentium?
-      Deleniti beatae natus libero molestiae iure sapiente iste aliquid error ipsam soluta dolor dignissimos excepturi fugiat provident, dolorum voluptates doloremque harum placeat vel, esse labore? Necessitatibus, cupiditate. A, repellendus amet.
-      Laborum adipisci voluptatum, dolor tempore aut illum et sequi quisquam culpa rerum dolorem libero corporis quae distinctio recusandae quod accusamus illo optio magni porro. Quam rem ducimus id distinctio nam!
-      Esse deleniti est doloribus, saepe quae veritatis quia explicabo sit autem libero, cumque voluptate. Maiores dolorum, modi accusamus natus amet expedita esse vel in eum, cum similique, ipsam et saepe?
-      Consectetur, minima quis? Voluptatum quasi eius, tenetur mollitia perspiciatis explicabo possimus cumque laboriosam. Aspernatur quasi velit maxime reprehenderit labore consequatur magni cumque eos omnis accusantium, ut illum! Blanditiis, ratione tenetur!
-      Soluta nihil libero eligendi consequuntur consequatur aperiam doloribus quod. Reprehenderit aspernatur, doloribus consequatur magni illum autem deserunt magnam tempore impedit itaque, laboriosam possimus corporis? Fuga nesciunt eligendi quae dignissimos quibusdam!
-      Ut quam tenetur, deserunt eveniet unde qui ex sint velit quis aut vero maxime nostrum ea suscipit animi dolor odio sapiente consectetur doloremque voluptatem. Sunt sit quibusdam incidunt cum aliquid.
-     nulla quibusdam ducimus enim expedita numquam voluptatibus, placeat, debitis quasi, impedit ipsa beatae! Dolores eveniet assumenda iure debitis consequuntur recusandae magni et sit omnis.
-      Debitis praesentium nisi doloribus culpa unde cupiditate quos sunt repellendus quia porro labore, rem natus ipsam ducimus aliquam nulla officia mollitia consectetur voluptate! Praesentium placeat vero fugiat dolores. Maxime, voluptatem!
-      Quam voluptatem eius, corporis repudiandae, itaque unde ad nesciunt error blanditiis dignissimos nam totam. Incidunt voluptates aperiam nihil in mollitia ad, pariatur vel nobis praesentium exercitationem quo adipisci tenetur modi.
-      Consequatur facilis nisi maiores laborum commodi quidem molestias tempore accusantium quis voluptatem repudiandae fugit cumque minus mollitia autem rem, dolorem voluptates officiis earum nobis repellat aliquam quae unde eius? Quisquam.
-      Dolorem dolore facilis exercitationem magnam, quod esse nulla harum similique ducimus quo ad laudantium voluptatem necessitatibus dignissimos sunt dicta id, possimus eum, ex quam ratione deserunt ullam modi labore? Accusamus!</p>
-      </div>
-  )
-}
+  const mobileDisplayRef = useRef(null);
 
-export default Home
+  useEffect(() => {
+    const mobileDisplay = mobileDisplayRef.current;
+    const handleMouseMove = (e) => {
+      const { left, top, width, height } = mobileDisplay.getBoundingClientRect();
+      const x = ((e.clientX - left) / width) * 100;
+      const y = ((e.clientY - top) / height) * 100;
+      mobileDisplay.style.backgroundPosition = `${x}% ${y}%`;
+    };
+
+    mobileDisplay.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      mobileDisplay.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  const MainContent = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 4rem;
+
+    .main-content {
+      max-width: 1300px;
+    }
+
+    .illustration {
+      max-width: 590px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      position: relative;
+      background-image: url('./illustrationpng_1.png'),
+        url('./illustrationpng_2.png'),
+        url('./illustrationpng_3.png'),
+        url('./illustrationpng_4.png');
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 20% auto, 40% auto, 50% auto, 25% auto;
+      background-position: 400px 50%, 100% 50%, 0% 100%, 50px 330px;
+      background-attachment: scroll, scroll, scroll, scroll;
+    }
+
+    .mobileFrame {
+      background-image: url("./frame.png");
+      background-size: cover;
+      background-position: right center;
+      max-width: 355px;
+      min-height: 630px;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .mobileDisplay {
+      background-image: url('./display.jpg');
+      width: 75%;
+      height: 92%;
+      background-size: cover;
+      top: 2%;
+      left: 4%;
+      position: absolute;
+      border-radius: 3rem;
+      background-position: 75%;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6rem;
+
+      p {
+        font-size: 6.5em;
+        font-weight: 600;
+        color: ${({ theme }) => theme.colors.white};
+      }
+
+      .icon {
+        display: flex;
+        align-items: flex-start;
+        gap: 10rem;
+
+        .icon-desc {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+          text-align: left;
+
+          span {
+            font-size: 1.5rem;
+            color: ${({ theme }) => theme.colors.white};
+            opacity: 0.8;
+          }
+
+          div {
+            font-size: 3rem;
+            color: ${({ theme }) => theme.colors.helper};
+          }
+        }
+      }
+
+      .btns {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn {
+        background-color: #0e58aeff;
+        border: 0.1rem solid rgb(98 84 243);
+        color: #ffffffff;
+        font-size: 1.4rem;
+        min-width: 8rem;
+        font-weight: 600;
+        min-height: 3.5rem;
+        border-radius: 1rem;
+        padding: 10px 28px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(98 84 243);
+          color: #fff;
+        }
+      }
+        .join{
+        display: flex;
+        column-gap: 8px;
+        justify-content: center;
+        align-items: center;
+        min-width: 20px;
+        min-height: 20px;
+        padding: 8px 16px;
+        color: #0e58aeff;
+        background-color: transparent;
+        font-weight: 900;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.4rem;
+        &:hover{
+        border: 1px solid #0e58aeff;
+        background-color: none;
+        }
+        }
+    }
+  `;
+
+  return (
+    <MainContent id="home" style={{ backgroundColor: "#0e58ae19" }}>
+      <div className="main-content grid grid-two-column">
+        <div className="illustration">
+          <div className="mobileFrame">
+            <div className="mobileDisplay" ref={mobileDisplayRef}></div>
+          </div>
+        </div>
+        <div className="content">
+          <p>Empower Content Creators to Succeed</p>
+          <IconContext.Provider
+            value={{ color: "#fff", size: "36px" }}
+          >
+            <div className="icon">
+              <div className="icon-desc">
+                <FaRegLightbulb />
+                <span>Find Perfect Freelance Partner</span>
+              </div>
+              <div className="icon-desc">
+                <FaRocket />
+                <span>Elevate Your Online Presence</span>
+              </div>
+              <div className="icon-desc">
+                <FaCheckCircle />
+                <span>Transform Ideas Into Reality</span>
+              </div>
+            </div>
+          </IconContext.Provider>
+          <div className="btns">
+            <button className="signup btn">Sign Up</button>
+            <IconContext.Provider value={{ color: "#0e58aeff", size: "10px" }}>
+              <button className="join">
+                Join today
+                <FaArrowRight />
+              </button>
+            </IconContext.Provider>
+          </div>
+        </div>
+      </div>
+    </MainContent>
+  );
+};
+
+export default Home;
