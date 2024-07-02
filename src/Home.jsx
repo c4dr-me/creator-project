@@ -35,7 +35,7 @@ const MainContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 110vh;
   padding-top: 4rem;
   background-color: #0e58ae19;
 
