@@ -47,8 +47,12 @@ h2 {
    font-size: 4.4rem;
    font-weight: 300;
    white-space: normal;
-   text-align: center;
   }
+   .my-svg path {
+  fill: #FFFFFF;
+  width: 112px;
+  height: 25px;
+}
 
   h3 {
   font-size: 1.8rem;

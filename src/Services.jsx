@@ -6,6 +6,7 @@ import { MdContentCopy } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
+import logosData from "./data";
 
 const StyledService = styled.div`
   padding: 5rem 0;
@@ -13,7 +14,7 @@ const StyledService = styled.div`
   align-items: center;
   margin: auto;
   width: 100%;
-  position: relative; /* Ensure the container adjusts height based on children */
+  position: relative;
 
   .left-ctn {
     display: flex;
@@ -25,6 +26,7 @@ const StyledService = styled.div`
       font-size: 40px;
       font-weight: 600;
       margin-bottom: 3rem;
+      line-height: 50px;
     }
 
     ul {
@@ -131,56 +133,119 @@ const StyledService = styled.div`
   }
 `;
 
+const DiscoverService = styled.div`
+  max-width: 1300px;
+  background-color: #0e58ae19;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  min-height: 520px;
+  padding:50px;
+  border-radius: 36px;
+  gap: 112px;
+  display: flex;
+  .discover-logo{
+  max-width: 560px;
+  gap: 30px;
+  height: fit-content;
+  .logo{
+  width: 170px;
+  height: 80px;
+  padding: 12px;
+  background-color: #121519;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  }
+  .discover-desc{
+  text-align: left;
+  max-width: 442px;
+  h2{
+  font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      line-height: 50px;
+      }
+      p{
+      font-size: 16px;
+      opacity: 0.8;
+      }
+  }
+`;
+
 const Services = () => {
   return (
-    <StyledService className="service-ctn grid grid-two-column">
-      <div className="left-ctn">
-        <h2>Our Services</h2>
-        <IconContext.Provider value={{ color: "#0e58aeff", size: "16px" }}>
-          <ul>
-            <li>
-              <FaArrowRight />
-              Hire Top-Notch Freelance Creators{" "}
-            </li>
-            <li>
-              <FaArrowRight />
-              High-Quality Thumbnail Designs{" "}
-            </li>
-            <li>
-              <FaArrowRight />
-              Professional Video Edits{" "}
-            </li>
-          </ul>
-        </IconContext.Provider>
-        <button className="btn">Discover Services</button>
-      </div>
-      <div className="right-ctn">
-        <div className="right1">
-          <div className="service-card-item video-editing">
-            <FaVideo size={34} color="#448C74" />
-            <h3>Video Editing</h3>
-            <p>Explore our diverse range of creative services.</p>
+    <>
+      <StyledService className="service-ctn grid grid-two-column">
+        <div className="left-ctn">
+          <h2>Our Services</h2>
+          <IconContext.Provider value={{ color: "#0e58aeff", size: "16px" }}>
+            <ul>
+              <li>
+                <FaArrowRight />
+                Hire Top-Notch Freelance Creators{" "}
+              </li>
+              <li>
+                <FaArrowRight />
+                High-Quality Thumbnail Designs{" "}
+              </li>
+              <li>
+                <FaArrowRight />
+                Professional Video Edits{" "}
+              </li>
+            </ul>
+          </IconContext.Provider>
+          <button className="btn">Discover Services</button>
+        </div>
+        <div className="right-ctn">
+          <div className="right1">
+            <div className="service-card-item video-editing">
+              <FaVideo size={34} color="#448C74" />
+              <h3>Video Editing</h3>
+              <p>Explore our diverse range of creative services.</p>
+            </div>
+            <div className="service-card-item social-media">
+              <CgMediaPodcast size={34} color="#3F7FCA" />
+              <h3>Social Media</h3>
+              <p>Expert thumbnail artists perfect your image.</p>
+            </div>
           </div>
-          <div className="service-card-item social-media">
-            <CgMediaPodcast size={34} color="#3F7FCA" />
-            <h3>Social Media</h3>
-            <p>Expert thumbnail artists perfect your image.</p>
+          <div className="right2">
+            <div className="service-card-item thumbnail">
+              <LuGalleryThumbnails size={34} color="#EDCB50" />
+              <h3>Thumbnail Creation</h3>
+              <p>Engaging thumbnail designs to boost views.</p>
+            </div>
+            <div className="service-card-item consultation">
+              <MdContentCopy size={34} color="#ED5050" />
+              <h3>Content Consultation</h3>
+              <p>Expert thumbnail artists perfect your image.</p>
+            </div>
           </div>
         </div>
-        <div className="right2">
-          <div className="service-card-item thumbnail">
-            <LuGalleryThumbnails size={34} color="#EDCB50" />
-            <h3>Thumbnail Creation</h3>
-            <p>Engaging thumbnail designs to boost views.</p>
-          </div>
-          <div className="service-card-item consultation">
-            <MdContentCopy size={34} color="#ED5050" />
-            <h3>Content Consultation</h3>
-            <p>Expert thumbnail artists perfect your image.</p>
-          </div>
+      </StyledService>
+      <DiscoverService>
+        <div className="discover-logo grid grid-three-column">
+          {logosData.map((logo, index) => (
+            <div
+              key={index}
+              className="logo"
+              dangerouslySetInnerHTML={{ __html: logo.logoSrc }}
+            />
+          ))}
         </div>
-      </div>
-    </StyledService>
+        <div className="discover-desc">
+          <h2>Driving Innovation In Digital Creativity</h2>
+          <p>
+            Utiliza powerful tools to streamline your creative projects and
+            connect with talented freelancers
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni inventore ipsum aspernatur excepturi ipsa quos? Quia possimus asperiores reprehenderit, dolorum iure voluptatem aut hic perspiciatis repellendus maiores suscipit quis nesciunt.</p>
+        </div>
+      </DiscoverService>
+    </>
   );
 };
 
