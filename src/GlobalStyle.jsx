@@ -124,6 +124,23 @@ li {
     cursor: pointer;
     }
 
+    .btn {
+      background-color: #0e58aeff;
+      border: 0.1rem solid rgb(98 84 243);
+      color: #fff;
+      font-size: 1.4rem;
+      min-width: 8rem;
+      font-weight: 600;
+      min-height: 3.5rem;
+      border-radius: 1rem;
+      padding: 10px 28px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(98 84 243);
+        color: #fff;
+      }
+
 
 /* ===========================================
 /* media queries  

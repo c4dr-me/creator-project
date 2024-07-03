@@ -1,12 +1,17 @@
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from './GlobalStyle'
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Benifit from './Benifit';
-import Contact from './Contact';
-import Review from './Review';
-import Services from './Services'
-import Header from '../components/Header'
-import Home from './Home'
+import Benifit from "./Benifit";
+import Contact from "./Contact";
+import Review from "./Review";
+import Services from "./Services";
+import Header from "../components/Header";
+import Home from "./Home";
+import user from "./userdata";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 function App() {
   const theme = {
@@ -30,17 +35,49 @@ function App() {
     },
     media: { mobile: "768px", tab: "998px" },
   };
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
   return (
     <ThemeProvider theme={theme}>
-       <GlobalStyle />
-        <Header />
+      <GlobalStyle />
+      <Header />
       <Home />
       <Services />
-      <Review />
       <Benifit />
+      <Slider {...sliderSettings}>
+        {user.map((user, index) => (
+          <Review key={index} user={user} />
+        ))}
+      </Slider>
       <Contact />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

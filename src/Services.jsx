@@ -15,7 +15,6 @@ const StyledService = styled.div`
   margin: auto;
   width: 100%;
   position: relative;
-
   .left-ctn {
     display: flex;
     flex-direction: column;
@@ -185,15 +184,15 @@ const Services = () => {
             <ul>
               <li>
                 <FaArrowRight />
-                Hire Top-Notch Freelance Creators{" "}
+                Hire Top-Notch Freelance Creators
               </li>
               <li>
                 <FaArrowRight />
-                High-Quality Thumbnail Designs{" "}
+                High-Quality Thumbnail Designs
               </li>
               <li>
                 <FaArrowRight />
-                Professional Video Edits{" "}
+                Professional Video Edits
               </li>
             </ul>
           </IconContext.Provider>

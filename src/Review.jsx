@@ -1,33 +1,70 @@
-import {React, useState} from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 // Styled component for the review container
 const ReviewContainer = styled.div`
-  background-color: #f0f0f0; // Example background color
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background-color: #0e58ae19;
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  min-height: 370px;
+  background-image: url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701785444/static/vectorpng_1701785202_34264.png),
+    url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701785456/static/vecrorpng_1701785215_17581.png);
+  background-position: 0% 0%, 100% 100%;
+  background-repeat: no-repeat no-repeat, no-repeat no-repeat;
+  .review-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 100px;
+    align-items: center;
+    max-width: 1075px;
+    height: auto;
+    .userdata {
+      max-width: 250px;
+      width: 100%;
+      img {
+        border-radius: 50%;
+      }
+      h2 {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 50px;
+      }
+      p {
+        color: #fff;
+        font-size: 16px;
+        opacity: 0.8;
+      }
+    }
+  }
 `;
 
-const Review = () => {
-    const [reviews, setReviews] = useState([
-        { id: 1, title: 'Great Product', content: 'This product has changed my life!', rating: 5 },
-        { id: 2, title: 'Good, but...', content: 'I liked it, but I wish it was cheaper.', rating: 4 },
-        { id: 3, title: 'Not worth it', content: 'Did not meet my expectations at all.', rating: 2 },
-      ]);
+const Review = ({ user }) => {
   return (
-    <ReviewContainer id='review'><h2>Customer Reviews</h2>
-    <div className="reviews-container">
-      {reviews.map((review) => (
-        <div key={review.id} className="review">
-          <h3>{review.title}</h3>
-          <p>{review.content}</p>
-          <p>Rating: {'⭐'.repeat(review.rating)}</p>
+    <ReviewContainer id="benifit">
+      <div className="review-content">
+        <div className="userdata">
+          <img
+            src={user.image}
+            width={86}
+            height={86}
+            alt=""
+          />
+          <h2>{user.name}</h2>
+          <p>{user.role}</p>
         </div>
-      ))}
-    </div></ReviewContainer>
+        <div className="msg">
+          <p>
+            {user.message}
+          </p>
+        </div>
+      </div>
+    </ReviewContainer>
   );
-}
+};
 
 export default Review;
