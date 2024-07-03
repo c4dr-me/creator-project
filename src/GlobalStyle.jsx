@@ -19,15 +19,15 @@ body {
     background-color: rgb(18, 21, 25);
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 1.5rem;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
    background-color: rgb(24 24 29);
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
  
   background: #fff;
     border: 5px solid transparent;

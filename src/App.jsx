@@ -1,12 +1,12 @@
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Benifit from "./Benifit";
 import Contact from "./Contact";
 import Review from "./Review";
 import Services from "./Services";
 import Header from "../components/Header";
 import Home from "./Home";
+import Footer from "../components/Footer";
 import user from "./userdata";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -77,6 +77,7 @@ function App() {
         ))}
       </Slider>
       <Contact />
+      <Footer/>
     </ThemeProvider>
   );
 }
