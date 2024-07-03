@@ -47,7 +47,7 @@ const Review = ({ user }) => {
   return (
     <ReviewContainer id="benifit">
       <div className="review-content">
-        <div className="userdata">
+        <div className="userdata" key={user.key}>
           <img
             src={user.image}
             width={86}
