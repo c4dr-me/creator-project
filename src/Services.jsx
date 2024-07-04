@@ -9,7 +9,7 @@ import styled from "styled-components";
 import logosData from "./data";
 
 const StyledService = styled.div`
-  padding: 5rem 0;
+  padding: 10rem 0;
   max-width: 1075px;
   align-items: center;
   margin: auto;
@@ -177,7 +177,7 @@ const DiscoverService = styled.div`
 const Services = () => {
   return (
     <>
-      <StyledService className="service-ctn grid grid-two-column">
+      <StyledService className="service-ctn grid grid-two-column" id="services">
         <div className="left-ctn">
           <h2>Our Services</h2>
           <IconContext.Provider value={{ color: "#0e58aeff", size: "16px" }}>

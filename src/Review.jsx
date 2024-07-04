@@ -11,8 +11,8 @@ const ReviewContainer = styled.div`
   align-items: center;
   margin: auto;
   min-height: 370px;
-  background-image: url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701785444/static/vectorpng_1701785202_34264.png),
-    url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701785456/static/vecrorpng_1701785215_17581.png);
+  background-image: url(./reviewpng_1.png),
+    url(./reviewpng_2.png);
   background-position: 0% 0%, 100% 100%;
   background-repeat: no-repeat no-repeat, no-repeat no-repeat;
   .review-content {
@@ -45,7 +45,7 @@ const ReviewContainer = styled.div`
 
 const Review = ({ user }) => {
   return (
-    <ReviewContainer id="benifit">
+    <ReviewContainer id="review">
       <div className="review-content">
         <div className="userdata" key={user.key}>
           <img

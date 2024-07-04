@@ -18,6 +18,7 @@ function App() {
   const theme = {
     colors: {
       heading: "#ffffff",
+      active: "#0e58aeff",
       text: "#ffffffff",
       white: "#fff",
       black: " #212529",
@@ -37,7 +38,7 @@ function App() {
     media: { mobile: "768px", tab: "998px" },
   };
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

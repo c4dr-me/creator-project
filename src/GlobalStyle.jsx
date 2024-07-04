@@ -9,11 +9,11 @@ export const GlobalStyle = createGlobalStyle`
  }
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow-x: none;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: none;
    scrollbar-color: rgb(98 84 243);
     scrollbar-width: thin;
     background-color: rgb(18, 21, 25);
@@ -65,9 +65,18 @@ p {
   line-height: 1.5;
   font-weight:400;
 }
-
+.navbar-list .active {
+  color: ${({ theme }) => theme.colors.active};
+  text-decoration: none;
+  font-weight: inherit;
+}
 a {
   text-decoration: none;
+    font-weight: 500;
+    color: #ffffffe5;
+    letter-spacing: 0px;
+    line-height: 26px;
+    padding: 0px 0px 0px 0px;
 }
 
 li {
@@ -103,27 +112,34 @@ li {
       text-transform: capitalize;
     }
 
-    input, textarea{
-    max-width: 50rem;
-    color: ${({ theme }) => theme.colors.black};
-    padding: 1.6rem 2.4rem;
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    text-transform: uppercase;
-   box-shadow: ${({ theme }) => theme.colors.shadowSupport};
-}
-    input[type="submit"]{
-    max-width: 16rem;
-    margin-top: 2rem;
-    background-color: ${({ theme }) => theme.colors.btn};
-    color: ${({ theme }) => theme.colors.white};
-    padding: 1.4rem 2.2rem;
-    border-style: solid;
-    border-width: .1rem;
-    text-transform: uppercase;
-    font-size: 1.8rem;
-    cursor: pointer;
+    input[type="text"], 
+    input[type="email"],
+    input[type="tel"]{
+    min-height: 5rem;
     }
 
+    input::placeholder, textarea::placeholder {
+    color: #fff; 
+    opacity: 0.8;
+  }
+
+    textarea{
+    padding: 6px 12px 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Inter;
+    color: #ffffffff;
+    line-height: 26px;
+    background-color: #ffffff00;
+    border: 1px solid #cccccc;
+    border-radius: 18px;
+    
+    }
+    .text-area label{
+    font-size: 16px;
+    color: #fff;
+    line-height: 26px;
+    }
     .btn {
       background-color: #0e58aeff;
       border: 0.1rem solid rgb(98 84 243);

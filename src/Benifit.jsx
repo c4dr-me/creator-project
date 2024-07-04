@@ -65,7 +65,7 @@ justify-content: center;
 align-items: center;
 height: 645px;
 width: 100%;
-background-image: url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701773909/static/vectorpng_1701773670_74859.png);
+background-image: url(./benifitpng_1.png);
 background-position: 850px 0%;
 background-size: 25% auto;
 background-repeat: no-repeat no-repeat;
@@ -76,7 +76,7 @@ border-radius: 36px;
 z-index: 150;
 height: 645px;
 max-width: 590px;
-background-image: url(https://res.cloudinary.com/dbyioi2qq/q_auto/v1701774012/static/vectorpng_1701773772_76141.png);
+background-image: url(./benifitpng_2.png);
 background-position: 500px 0%;
 background-size: 25% auto;
 background-repeat: no-repeat no-repeat;
@@ -161,8 +161,8 @@ const ReviewService = styled.div`
 
 const Review = () => {
   return (
-    <>
-    <ReviewTopContainer id="review">
+    <div id="benifit">
+    <ReviewTopContainer >
       <div className="review-heading">
         <h2>Key Benifits</h2>
       </div>
@@ -220,7 +220,7 @@ const Review = () => {
           </ReviewService>
       </ReviewBottomContainer>
 
-      </>
+      </div>
   );
 };
 

@@ -35,12 +35,12 @@ const MainContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 110vh;
+  min-height: 120vh;
   padding-top: 4rem;
   background-color: #0e58ae19;
-
   .main-content {
     max-width: 1300px;
+    margin-top: 8rem;
   }
 
   .illustration {
