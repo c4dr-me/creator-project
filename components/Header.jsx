@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import Navbar from "./Navbar";
 import styled from "styled-components";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
+  const handleGetStartedClick = () => {
+    navigate('/signup'); 
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -21,9 +25,13 @@ const Header = () => {
   }, []);
   return (
     <MainHeader isScrolled={isScrolled}>
-      <h1 className="collab">Collab</h1>
-      <Navbar />
-      <button className="btn">Get Started For Free</button>
+      <Link to="/" className="collab" >Collab</Link>
+      {location.pathname !== '/dashboard' && (
+        <Navbar/>
+      )}
+       {location.pathname !== '/dashboard' && (
+        <button className="btn" onClick={handleGetStartedClick}>Get Started For Free</button>
+      )}
     </MainHeader>
   );
 };
@@ -40,8 +48,9 @@ const MainHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  h1 {
+  .collab {
     font-size: 30px;
+    font-weight: 900;
   }
   .btn {
     background-color: #0e58aeff;

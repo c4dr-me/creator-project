@@ -7,6 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 import logosData from "./data";
+import {useNavigate} from "react-router-dom";
 
 const StyledService = styled.div`
   padding: 10rem 0;
@@ -175,6 +176,10 @@ const DiscoverService = styled.div`
 `;
 
 const Services = () => {
+  const navigate = useNavigate();
+  const handleDiscover = () => {
+    navigate("/hire-me");
+  }
   return (
     <>
       <StyledService className="service-ctn grid grid-two-column" id="services">
@@ -196,7 +201,7 @@ const Services = () => {
               </li>
             </ul>
           </IconContext.Provider>
-          <button className="btn">Discover Services</button>
+          <button className="btn" onClick={handleDiscover}>Discover Services</button>
         </div>
         <div className="right-ctn">
           <div className="right1">

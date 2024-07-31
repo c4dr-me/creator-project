@@ -1,6 +1,7 @@
 import { ThemeProvider } from "styled-components";
+import { useState, useEffect, Suspense } from "react";
 import { GlobalStyle } from "./GlobalStyle";
-import Benifit from "./Benifit";
+import Benefit from "./Benefit";
 import Contact from "./Contact";
 import Review from "./Review";
 import Services from "./Services";
@@ -8,13 +9,31 @@ import Header from "../components/Header";
 import Home from "./Home";
 import Footer from "../components/Footer";
 import user from "./userdata";
+import SignUp from '../components/Signup';
+import LogIn from '../components/Login';
+import Dashboard from '../Dashboard/dashboard';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PrevArrow, NextArrow } from "./CustomArrow";
-
+import { Routes, Route } from 'react-router-dom'; 
+import { Element } from 'react-scroll';
+import HireMe from './Posts';
+import UserProfile from './UserProfile';
+import LoadingAnimation from './LoadingAnimation';
+import Error from './404';
+import ProtectedRoute from '../utils/ProtectedRoute'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000); 
+
+    return () => clearTimeout(timer);
+  }, []);
   const theme = {
     colors: {
       heading: "#ffffff",
@@ -37,6 +56,7 @@ function App() {
     },
     media: { mobile: "768px", tab: "998px" },
   };
+
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -65,20 +85,68 @@ function App() {
       }
     ]
   };
+   if (isLoading) {
+    return <LoadingAnimation bgColor="rgb(18, 21, 25)" />;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Suspense fallback={LoadingAnimation}>
       <Header />
-      <Home />
-      <Services />
-      <Benifit />
-      <Slider {...sliderSettings}>
-        {user.map((user, index) => (
-          <Review key={index} user={user} />
-        ))}
-      </Slider>
-      <Contact />
-      <Footer/>
+      <Routes>
+      <Route path="*" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <Error />
+          </Suspense>
+        } />
+        <Route path="/" element={
+          <Suspense fallback={<LoadingAnimation/>}>
+            <>
+              <Element name="home"><Home /></Element>
+              <Element name="services"><Services /></Element>
+              <Element name="benefit"><Benefit /></Element>
+              <Element name="reviews">
+                <Slider {...sliderSettings}>
+                  {user.map((user, index) => (
+                    <Review key={index} user={user} />
+                  ))}
+                </Slider>
+              </Element>
+              <Element name="contact"><Contact /></Element>
+            </>
+          </Suspense>
+        } />
+        <Route path="/hire-me" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <HireMe />
+          </Suspense>
+        } />
+        <Route path="/user/profile/:token" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <UserProfile />
+          </Suspense>
+        } />
+        <Route path="/signup" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <SignUp />
+          </Suspense>
+        } />
+        <Route path="/login" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <LogIn />
+          </Suspense>
+        } />
+        <Route path="/dashboard" element={
+          <Suspense fallback={<LoadingAnimation />}>
+            <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+          </Suspense>
+        } />
+      </Routes>
+      <Footer />
+      </Suspense>
     </ThemeProvider>
   );
 }

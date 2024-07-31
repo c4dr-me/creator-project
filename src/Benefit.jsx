@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import logosData from "./data";
 
+
 const ReviewTopContainer = styled.div`
   min-height: auto;
   display: flex;
@@ -109,6 +110,7 @@ const ReviewBottomContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15rem;
+  margin-bottom: 5rem;
 h2 {
       font-size: 40px;
       font-weight: 600;
@@ -160,8 +162,9 @@ const ReviewService = styled.div`
 `;
 
 const Review = () => {
+
   return (
-    <div id="benifit">
+    <div id="benefit">
     <ReviewTopContainer >
       <div className="review-heading">
         <h2>Key Benifits</h2>

@@ -10,7 +10,7 @@ const ContactStyles = styled.div`
   max-width: 1300px;
   height: auto;
   background-color: #0e58ae;
-  margin:  5rem auto 0 auto;
+  margin:  15rem auto 0 auto;
   border-radius: 16px;
   display: flex;
   flex-direction: column;

@@ -16,7 +16,7 @@ body {
   overflow-x: none;
    scrollbar-color: rgb(98 84 243);
     scrollbar-width: thin;
-    background-color: rgb(18, 21, 25);
+    background-color: rgba(18, 21, 25, 1);
 }
 
 *::-webkit-scrollbar {
@@ -41,6 +41,10 @@ h1{
   font-size: 2rem;
   font-weight: 900;
 }
+  .collab {
+    font-size: 30px;
+    font-weight: 900;
+  }
 
 h2 {
    color: ${({ theme }) => theme.colors.heading};
@@ -114,12 +118,13 @@ li {
 
     input[type="text"], 
     input[type="email"],
-    input[type="tel"]{
+    input[type="tel"],
+    input[type="password"] {
     min-height: 5rem;
     }
 
-    input::placeholder, textarea::placeholder {
-    color: #fff; 
+    input::placeholder, textarea::placeholder { 
+    color: #fff;
     opacity: 0.8;
   }
 
@@ -157,6 +162,8 @@ li {
         color: #fff;
       }
 
+      
+      
 
 /* ===========================================
 /* media queries  

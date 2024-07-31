@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const FooterStyle = styled.footer`
   background-color: inherit;
@@ -39,6 +40,7 @@ const FooterStyle = styled.footer`
     display: flex;
     justify-content: space-between;
     gap: 6.25rem;
+    font-size: 1.4rem;
     .left-links,
     .right-links {
       display: flex;
@@ -55,7 +57,7 @@ const Footer = () => {
       <footer>
         <div className="company-footer">
           <div className="company-footer-logo">
-            <h1>Collab</h1>
+            <Link to="/" className="collab">Collab</Link>
           </div>
           <div className="company-footer-info">
             <p>Join us and explore endless creative opportunities.</p>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as NavbarLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { CgMenu, CgCloseR } from "react-icons/cg";
 
@@ -11,80 +11,130 @@ const Navbar = () => {
     <Nav>
       <div className={openMenu ? "menuIcon active" : "menuIcon"}>
         <ul className="navbar-list">
-          <li>
-            <ScrollLink
-              className="navbar-link"
-              onClick={() => setOpenMenu(false)}
-              to="home"
-              smooth={true}
-              duration={500}
-              offset={0}
-              spy={true}
-              hashSpy={true}
-              activeClass="active"
-            >
-              Home
-            </ScrollLink>
+        <li>
+            {location.pathname === "/" ? (
+              <ScrollLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="home"
+                smooth={true}
+                duration={500}
+                offset={0}
+                spy={true}
+                hashSpy={true}
+                activeClass="active"
+              >
+                Home
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="/"
+              >
+                Home
+              </RouterLink>
+            )}
           </li>
           <li>
-            <ScrollLink
-              className="navbar-link"
-              onClick={() => setOpenMenu(false)}
-              to="services"
-              smooth={true}
-              duration={500}
-              offset={5}
-              spy={true}
-              hashSpy={true}
-              activeClass="active"
-            >
-              Services
-            </ScrollLink>
+            {location.pathname === "/" ? (
+              <ScrollLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="services"
+                smooth={true}
+                duration={500}
+                offset={5}
+                spy={true}
+                hashSpy={true}
+                activeClass="active"
+              >
+                Services
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="/"
+              >
+                Services
+              </RouterLink>
+            )}
           </li>
           <li>
-            <ScrollLink
-              className="navbar-link"
-              onClick={() => setOpenMenu(false)}
-              to="benifit"
-              smooth={true}
-              duration={500}
-              offset={-60}
-              spy={true}
-              hashSpy={true}
-              activeClass="active"
-            >
-              Benifit
-            </ScrollLink>
+            {location.pathname === "/" ? (
+              <ScrollLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="benefit"
+                smooth={true}
+                duration={500}
+                offset={-40}
+                spy={true}
+                hashSpy={true}
+                activeClass="active"
+              >
+                Benefit
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="/"
+              >
+                Benefit
+              </RouterLink>
+            )}
           </li>
           <li>
-            <ScrollLink
-              className="navbar-link"
-              onClick={() => setOpenMenu(false)}
-              to="review"
-              smooth={true}
-              duration={500}
-              offset={-60}
-              spy={true}
-              hashSpy={true}
-              activeClass="active"
-            >
-              Review
-            </ScrollLink>
+            {location.pathname === "/" ? (
+              <ScrollLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="review"
+                smooth={true}
+                duration={500}
+                offset={-60}
+                spy={true}
+                hashSpy={true}
+                activeClass="active"
+              >
+                Review
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="/"
+              >
+                Review
+              </RouterLink>
+            )}
           </li>
           <li>
-            <ScrollLink
-              className="navbar-link"
-              onClick={() => setOpenMenu(false)}
-              to="contact"
-              smooth={true}
-              duration={500}
-              offset={0}
-              spy={true}
-              hashSpy={true}
-              activeClass="active"
-            >
-              Contact
-            </ScrollLink>
+            {location.pathname === "/" ? (
+              <ScrollLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="contact"
+                smooth={true}
+                duration={500}
+                offset={-60}
+                spy={true}
+                hashSpy={true}
+                activeClass="active"
+              >
+                Contact
+              </ScrollLink>
+            ) : (
+              <RouterLink
+                className="navbar-link"
+                onClick={() => setOpenMenu(false)}
+                to="/"
+              >
+                Contact
+              </RouterLink>
+            )}
           </li>
         </ul>
         {/* //nav icon */}
