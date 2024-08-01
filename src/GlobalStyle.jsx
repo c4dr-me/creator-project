@@ -9,14 +9,14 @@ export const GlobalStyle = createGlobalStyle`
  }
 html {
   font-size: 62.5%;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 body {
-  overflow-x: none;
-   scrollbar-color: rgb(98 84 243);
-    scrollbar-width: thin;
-    background-color: rgba(18, 21, 25, 1);
+  overflow-x: hidden;
+  scrollbar-color: rgb(98 84 243);
+  scrollbar-width: thin;
+  background-color: rgba(18, 21, 25, 1);
 }
 
 *::-webkit-scrollbar {
@@ -130,7 +130,6 @@ li {
 
     textarea{
     padding: 6px 12px 6px 12px;
-    font-size: 16px;
     font-weight: 400;
     font-family: Inter;
     color: #ffffffff;

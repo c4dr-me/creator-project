@@ -78,6 +78,9 @@ const LogIn = styled.div`
       }
     }
   }
+   @media (max-width: ${({ theme }) => theme.media.mobile}){
+    width: 90% !important;
+    }
 `;
 
 const CustomToastContainer = styled(ToastContainer).attrs({

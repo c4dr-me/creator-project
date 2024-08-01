@@ -39,8 +39,38 @@ const MainContent = styled.div`
   padding-top: 4rem;
   background-color: #0e58ae19;
   .main-content {
+    grid-template-columns: repeat(2, 1fr);
     max-width: 1300px;
     margin-top: 8rem;
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}){
+  .main-content{
+  display: flex;
+  flex-direction: column;
+  .illustration{
+  background-position: 350px 54%, 99% 52%, 5% 91%, 15px 454px ! Important;
+  background-size: 12% auto, 30% auto, 52% auto, 25% auto ! Important;
+  }
+  .content p{
+  text-align: center;
+  font-size: 3.5rem !Important;
+  }
+  .icon{
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem !important;
+  }
+  .mobileDisplay{
+  left: 13% !important;
+  }
+  .btns{
+  margin-bottom: 5rem;
+  justify-content: center;
+  }
+  }
+    .mobileFrame{
+  background-position: center center !Important;
+  }
   }
 
   .illustration {
@@ -56,8 +86,8 @@ const MainContent = styled.div`
       url('./illustrationpng_3.png'),
       url('./illustrationpng_4.png');
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    background-size: 20% auto, 40% auto, 50% auto, 25% auto;
-    background-position: 400px 50%, 95% 50%, 0% 100%, 50px 330px;
+    background-size: 20% auto, 40% auto, 50% auto, 30% auto;
+    background-position: 400px 50%, 95% 50%, 0% 100%, 50px 425px;
     background-attachment: scroll, scroll, scroll, scroll;
   }
 
@@ -122,6 +152,15 @@ const MainContent = styled.div`
           color: ${({ theme }) => theme.colors.helper};
         }
       }
+        @media (max-width: ${({ theme }) => theme.media.mobile}){
+          .service-ctn{
+          display: flex;
+          flex-direction: column;
+          .left-ctn{
+          text-align: center;
+          }
+          } 
+        }
     }
 
     .btns {
@@ -168,6 +207,7 @@ const MainContent = styled.div`
       }
     }
   }
+
 `;
 
 
@@ -192,7 +232,7 @@ const Home = () => {
 
   return (
     <MainContent id="home">
-      <div className="main-content grid grid-two-column">
+      <div className="main-content grid">
         <div className="illustration">
           <div className="mobileFrame">
             <div className="mobileDisplay" ref={mobileDisplayRef}>

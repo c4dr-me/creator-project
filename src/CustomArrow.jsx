@@ -10,6 +10,14 @@ const ArrowContainer = styled.div`
   &.slick-next {
     right: 130px;
   }
+    @media (max-width: ${({ theme }) => theme.media.mobile}){
+    &.slick-prev {
+    left: 25px !important;
+    }
+    &.slick-next{
+    right: 25px !important;
+    }
+}
 `;
 
 export const PrevArrow = (props) => {

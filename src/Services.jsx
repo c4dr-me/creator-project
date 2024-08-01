@@ -16,6 +16,8 @@ const StyledService = styled.div`
   margin: auto;
   width: 100%;
   position: relative;
+  grid-template-columns: repeat(2, 1fr);
+ 
   .left-ctn {
     display: flex;
     flex-direction: column;
@@ -131,6 +133,19 @@ const StyledService = styled.div`
       box-shadow: 8px 8px 0px 0px rgb(237, 80, 80);
     }
   }
+  @media (max-width: ${({ theme }) => theme.media.mobile}){
+      display: flex !important;
+      flex-direction: column !important;
+      
+      .left-ctn{
+      text-align: center;
+      }
+      .right-ctn{
+      flex-direction: column;
+      gap: 1rem !important;
+      }
+      
+  }
 `;
 
 const DiscoverService = styled.div`
@@ -173,6 +188,14 @@ const DiscoverService = styled.div`
       opacity: 0.8;
       }
   }
+        @media (max-width: ${({ theme }) => theme.media.mobile}){
+      flex-direction: column !important;
+      border-radius: 0 !important;
+      .logo{
+      width: 110px !important;
+      height: 55px !important;
+      }
+  }
 `;
 
 const Services = () => {
@@ -182,7 +205,7 @@ const Services = () => {
   }
   return (
     <>
-      <StyledService className="service-ctn grid grid-two-column" id="services">
+      <StyledService className="service-ctn grid" id="services">
         <div className="left-ctn">
           <h2>Our Services</h2>
           <IconContext.Provider value={{ color: "#0e58aeff", size: "16px" }}>

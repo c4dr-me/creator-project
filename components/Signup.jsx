@@ -17,6 +17,9 @@ const SignIn = styled.div`
   p {
     padding-top: 1rem;
   }
+    h2{
+    font-weight: 500;
+    }
 
   a {
     opacity: 0.8;
@@ -74,6 +77,10 @@ const SignIn = styled.div`
       }
     }
   }
+    @media (max-width: ${({ theme }) => theme.media.mobile}){
+    width: 90% !important;
+    height: 110vh !important;
+    }
 `;
 
 const CustomToastContainer = styled(ToastContainer).attrs({
@@ -131,7 +138,7 @@ const SignUp = () => {
       }}
     >
       <CustomToastContainer position="top-center" />
-      <h2>Sign In</h2>
+      <h2>Sign Up</h2>
       <form action="" onSubmit={handleSubmit}>
         <div className="forms">
           <div className="column">

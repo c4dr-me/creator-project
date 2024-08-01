@@ -51,6 +51,11 @@ const ReviewTopContainer = styled.div`
     flex-direction: column;
     gap: 1rem;
     }
+    @media (max-width: ${({ theme }) => theme.media.mobile}){
+    .review-icon{
+    flex-direction: column;
+    }
+    }
 `;
 
 const ReviewMiddleContainer = styled.div`
@@ -101,6 +106,23 @@ height: 100%;
 rotate: 10deg;
 }
 }
+
+ @media (max-width: ${({ theme }) => theme.media.mobile}){
+  padding-bottom: 10rem;
+  .image-container{
+  flex-direction: column;
+  background-position: 298px 555px !important;
+  background-size: 30% auto !important;
+  }
+ .left-img{
+ width: 90%;
+ background-position: 365px 1px !important;
+    background-size: 11% auto !important;
+ }
+ .right-img{
+ width: 80% !important;
+ }
+ }
 `
 const ReviewBottomContainer = styled.div`
   max-width: 1300px;
@@ -108,7 +130,6 @@ const ReviewBottomContainer = styled.div`
   margin: auto;
   width: 100%;
   display: flex;
-  flex-direction: row;
   gap: 15rem;
   margin-bottom: 5rem;
 h2 {
@@ -124,6 +145,11 @@ h2 {
       opacity: 0.8;
       padding-bottom: 25px;
     }
+      @media (max-width: ${({ theme }) => theme.media.mobile}){
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      }
 `
 const ReviewService = styled.div`
   align-items: center;
@@ -159,6 +185,12 @@ const ReviewService = styled.div`
       opacity: 0.8;
       }
   }
+      @media (max-width: ${({ theme }) => theme.media.mobile}){
+      .logo{
+      width:110px !important;
+      height: 55px !important;
+      }
+      }
 `;
 
 const Review = () => {

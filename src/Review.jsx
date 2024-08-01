@@ -41,6 +41,29 @@ const ReviewContainer = styled.div`
       }
     }
   }
+    @media (max-width: ${({ theme }) => theme.media.mobile}) {
+      margin: 1rem !important;
+      p{
+      font-size: 13px !important;
+      }
+      .review-content{
+      flex-direction: column !important;
+      padding: 5rem;
+      gap: 55px !important;
+      }
+      .userdata{
+      h2{
+      font-size: 22px !important;
+      }
+      img{
+      width: 50px !important;
+      height: 50px !important;
+      }
+      }
+      .msg{
+      padding-left: 1.5rem;
+      }
+      }
 `;
 
 const Review = ({ user }) => {

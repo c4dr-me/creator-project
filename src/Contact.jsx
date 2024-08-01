@@ -4,6 +4,9 @@ import styled from "styled-components";
 const ContactSection = styled.section`
 background-image: linear-gradient(to top, #0e58ae19 60%, #ffffff00 50%); 
 min-height: 100vh;
+@media (max-width: 768px) {
+width: 100%;
+}
 `
 
 const ContactStyles = styled.div`
@@ -91,9 +94,11 @@ const ContactStyles = styled.div`
   }
 
   @media (max-width: 768px) {
+  margin-bottom: 2.5rem;
+  width: 90%;
     form {
       .forms {
-        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   }
