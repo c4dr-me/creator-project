@@ -267,7 +267,6 @@ const StyledDashboard = styled.div`
 `;
 
 const Dashboard = () => {
-  console.log(useAuth);
   const isAuthenticated = useAuth();
 
   if (!isAuthenticated) {
@@ -420,9 +419,10 @@ const Dashboard = () => {
   }, []);
 
   const handleProfileEdit = async () => {
-    const newName = prompt("Enter your new name:", user.name);
-    const newEmail = prompt("Enter your new email:", user.email);
-    if (!newName || !newEmail) {
+    const newName = prompt("Edit your name:", user.name);
+    const newEmail = prompt("Edit your email:", user.email);
+    const newPhone = prompt("Edit your contact number:", user.telephone);
+    if (!newName || !newEmail || !newPhone) {
       alert("Name and email are required.");
       return;
     }
@@ -430,6 +430,7 @@ const Dashboard = () => {
     const updatedProfileData = {
       name: newName,
       email: newEmail,
+      telephone: newPhone,
     };
 
     try {
@@ -505,7 +506,8 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const token = Cookies.get("token");
-      const response = await fetch('${import.meta.env.VITE_BACKEND_URL}/api/auth/posts', {
+      const response = await fetch(
+        `http://localhost:5000/api/auth/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

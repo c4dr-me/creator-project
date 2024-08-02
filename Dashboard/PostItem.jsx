@@ -47,7 +47,7 @@ const PostContainer = styled.div`
     width: 100%;
     font-size: 16px;
     background: none;
-    border-radius: 32px;
+    border-radius: 32px !important;
     color: #fff;
   }
 

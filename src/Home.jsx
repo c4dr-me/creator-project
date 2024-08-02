@@ -7,6 +7,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import styled, {css} from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Tooltip = styled.div`
   position: absolute;
@@ -213,6 +214,7 @@ const MainContent = styled.div`
 
 const Home = () => {
   const mobileDisplayRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const mobileDisplay = mobileDisplayRef.current;
@@ -229,6 +231,13 @@ const Home = () => {
       mobileDisplay.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+  
+  const handleGetStartedClick = () => {
+    navigate('/signup'); 
+  };
+  const handleJoinTodayClick = () => {
+    navigate('/login')
+  };
 
   return (
     <MainContent id="home">
@@ -259,10 +268,10 @@ const Home = () => {
             </div>
           </IconContext.Provider>
           <div className="btns">
-            <button className="signup btn">Sign Up</button>
+            <button className="signup btn" onClick={handleGetStartedClick}>Sign Up</button>
             <IconContext.Provider value={{ color: "#0e58aeff", size: "10px" }}>
-              <button className="join">
-                Join today
+              <button className="join" onClick={handleJoinTodayClick}>
+                Login
                 <FaArrowRight />
               </button>
             </IconContext.Provider>

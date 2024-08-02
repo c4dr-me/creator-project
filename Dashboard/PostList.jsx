@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PostItem from "./PostItem";
+import Cookies from "js-cookie";
 
 const StyledPostList = styled.div`
   max-width: 1300px;
@@ -53,7 +54,7 @@ const PostList = ({ user, posts = [], handlePostEdit, handlePostDeletion }) => {
 
   const handleSave = async (postId) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = Cookies.get("token");
 
       const url = `${import.meta.env.VITE_BACKEND_URL}/api/auth/posts/${postId}`;
       console.log('Saving post with URL:', url); // Debugging line

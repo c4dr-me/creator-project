@@ -156,14 +156,14 @@ const SignUp = () => {
           </div>
 
           <div className="column">
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company">Company / Institution</label>
             <input
               type="text"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
               id="company"
               name="company"
-              placeholder="Your company"
+              placeholder="Your company or institituion"
             />
           </div>
 
